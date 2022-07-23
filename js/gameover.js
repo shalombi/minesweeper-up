@@ -81,7 +81,7 @@ var conditionToWinD=  (gCountInvertedTiles - gMarkedWereWasAmine) === (boardSize
 
 console.log(gCountInvertedTiles);
 
-if (conditionToWinA || conditionToWiB || conditionToWiC || conditionToWinD) {
+if (conditionToWinD || conditionToWinA || conditionToWiB || conditionToWiC) {
     gSmileSituation.innerText = '😎'
     gMsgSituation.innerText = 'WIN!'
     gIsGameOver = true
