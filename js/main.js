@@ -267,7 +267,7 @@ document.querySelector('.left').innerHTML=`MINES LEFT:${counterRestOfMines}`
     gIsGaming= true
      if (gIsGameOver ) return 
      startStopWatch()
-     blowUpNegs(gBombs, cellI, cellJ)//!! it's bombs negs - IS WORKING - IS WORKING - IS WORKING - IS WORKING
+    // blowUpNegs(gBombs, cellI, cellJ)//!! it's bombs negs - IS WORKING - IS WORKING - IS WORKING - IS WORKING
 
     var aBombArea = countBombs(cellI, cellJ, gBoard) 
     var currCell = gBoard[cellI][cellJ]
