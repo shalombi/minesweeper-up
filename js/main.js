@@ -8,7 +8,7 @@ const BOMB = '💣'
 
 // TILE_STATUSES
 HIDDEN='hidden'
-var numberOfMines =2
+var numberOfMines =3
 var boardSize = 4
 // The Model
 var gBoard;
@@ -48,22 +48,22 @@ function init() {
 
 
 
-function toggleGame(elBtn){
-    if(gGameInterval){
-        clearInterval(gGameInterval)
-        gGameInterval = 0
-        elBtn.innerText = 'Resume Game'
-    } else {
-        gGameInterval = setInterval(play, GAME_FREQ);
-        elBtn.innerText = 'Pause Game'
-    }
-}
+// function toggleGame(elBtn){
+//     if(gGameInterval){
+//         clearInterval(gGameInterval)
+//         gGameInterval = 0
+//         elBtn.innerText = 'Resume Game'
+//     } else {
+//         gGameInterval = setInterval(play, GAME_FREQ);
+//         elBtn.innerText = 'Pause Game'
+//     }
+// }
 
-function play() {
-    // gBoard = runGeneration(gBoard);
-    gBoard
-    renderBoard(gBoard);
-}
+// function play() {
+//     // gBoard = runGeneration(gBoard);
+//     gBoard
+//     renderBoard(gBoard);
+// }
 
 
 
@@ -267,7 +267,7 @@ document.querySelector('.left').innerHTML=`MINES LEFT:${counterRestOfMines}`
     gIsGaming= true
      if (gIsGameOver ) return 
      startStopWatch()
-    // blowUpNegs(gBombs, 0, 0)//!! it's bombs negs - IS WORKING - IS WORKING - IS WORKING - IS WORKING
+     blowUpNegs(gBombs, cellI, cellJ)//!! it's bombs negs - IS WORKING - IS WORKING - IS WORKING - IS WORKING
 
     var aBombArea = countBombs(cellI, cellJ, gBoard) 
     var currCell = gBoard[cellI][cellJ]
@@ -283,15 +283,9 @@ document.querySelector('.left').innerHTML=`MINES LEFT:${counterRestOfMines}`
 
     // console.log('countNegs',countMines);
 
-
-
   currCell = gBoard[cellI][cellJ]
 
     if( currCell.tileBoard === TILE &&  currCell.mine !== 1 ) {
-
-  
-
-
         console.log('TILE!!');
         // Update the model
         gBoard[cellI][cellJ] =''
@@ -317,13 +311,7 @@ document.querySelector('.left').innerHTML=`MINES LEFT:${counterRestOfMines}`
         console.log(counterRestOfMines);
            gameOver()
     }
-
-
-
 }
-
-
-
 
 // blowUpNegs(gBombs, 2, 2)
 function blowUpNegs(mat, cellI, cellJ){
@@ -335,10 +323,13 @@ function blowUpNegs(mat, cellI, cellJ){
             if (i === cellI && j === cellJ) continue;
             if (j < 0 || j >= mat[i].length) continue;
             
-            if(mat[i][j] === SUPER_LIFE) continue
-            
+            // if(mat[i][j] === SUPER_LIFE) continue
+            // if (!gBoard[i][j].isShowed && !gBoard[i][j].mine)
+            // console.log('mat[i][j] from blowUpNegs',gBoard[i][j]);
+            if (gBoard[i][j].isShowed || gBoard[i][j].mine) return
+
             // Update Model
-            mat[i][j] = ''
+            gBoard[i][j] = ''
 
             // Update DOM
             var selector = `[data-i="${i}"][data-j="${j}"]`
