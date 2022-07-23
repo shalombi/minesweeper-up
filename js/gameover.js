@@ -75,7 +75,7 @@ var conditionToWiB = gCountInvertedTiles === boardSize**2 - numberOfMines
 // IF CLICKED SHOWS A NUMBER AND NOT EMPTY CELL (NUMBER-LET INDICITION ON BOMBS SOROUNDING THE TILE CLICKED)
 var conditionToWiC = gCountInvertedTiles === boardSize**2 - numberOfMines - numberOfNumIndicationOfBomb
 
-var conditionToWinD=  gCountInvertedTiles === (boardSize**2 - numberOfMines + gMarkedWereWasAmine) // marked === mines
+var conditionToWinD=  gCountInvertedTiles === (boardSize**2 - numberOfMines - gMarkedWereWasAmine) // marked === mines
 
 
 
