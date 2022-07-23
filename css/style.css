@@ -14,6 +14,7 @@
 
 .board td:hover {
     background-color: rgb(234, 71, 1);
+    cursor: pointer;
 }
 
 .occupied {
@@ -66,13 +67,16 @@ h1 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-
+/* 
  .smilee {
+     font-size: 40px;
      text-align: center;
      margin-left: auto;
      margin-right: auto;
-     width: 900px;
- }
+   
+   
+ } */
+
 
  h2 {
      color:black;
@@ -111,9 +115,11 @@ h1 {
 
 
   .btn{
-font-size: 20px;
-background-color:rgb(108, 106, 106);
+font-size: 37px;
+background-color: rgb(108, 106, 106);
 text-align: center;
+margin-left: auto;
+margin-right: auto;
 /* display: inline-block; */
 text-decoration: none;
 }
@@ -131,6 +137,7 @@ color: rgb(30, 26, 21);
 font-size: 20px;
 font-weight: bold;
 border-radius: 4.5px;
+text-align: center;
 
 }
 
@@ -157,3 +164,15 @@ font-weight: bold;
 
   }
 
+/* .mine{
+    /* background-color: rgb(161, 153, 153); */
+
+    /* background-color: rgb(221, 44, 44) */
+    /* display:flex; */
+/* } */ 
+
+.left{
+   font-size: 15px;
+   font-family:monospace;
+   font-style: initial;
+}

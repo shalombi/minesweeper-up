@@ -11,6 +11,8 @@ function  gameOver(){
     // stop()
     gIsGameOver = true
   stop()
+ // MAKE ALL MINE VISIBLE IN GAME OVER
+
     return
   }
   else if (gLives !==0) {
@@ -25,25 +27,36 @@ gLivesStatus.innerText = lives
 
 
 
+
 // function displayTheBombs(indexes){
 //     for (var i = 0; i < numberOfMines; i++) {
   
 //     }
 //   }
 
+// gIndexMines
 
-function displayTheBombs(indexes){ //! SHOW THE BOMBS WHEN GAME OVER
+// displayTheBombs(gIndexMines)
 
-    for (var I = 0; I < numberOfMines; I++) {
-       var x = indexes[I].i
-         var y = indexes[I].j
-    
-    
-    // renderCell(x,y,'💣')
-    console.log(indexes[I]);
-    renderCell(indexes[I].i, indexes[I].j, '💣')
-    }
-    }  
+// function displayTheBombs(indexes){ //! SHOW THE BOMBS WHEN GAME OVER
+// // var elCell = document.querySelector('.cell ')
+
+//     for (var I = 0; I < numberOfMines; I++) {
+//       console.log(`${'I',I}`);
+//        var x = indexes[I].i
+//          var y = indexes[I].j
+//         //  var currCell = gBoard[x][y]
+//         //  gBoard[x][y] ='💣'
+//          // Update the DOM
+//         //  elCell.innerText = '💣'
+//             // Update the status of Showed 
+
+//     console.log(indexes[I] ,'indexes[I] from displayTheBombs');
+//     renderCellmine(indexes[I].i, indexes[I].j, '💣💣💣💣')
+
+
+//     }
+//     }  
     
 
 

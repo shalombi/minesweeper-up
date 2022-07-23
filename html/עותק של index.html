@@ -13,26 +13,17 @@
     <h1>MINESWEEPER</h1>
 
     <div>
-        <h1 class = "smilee"><button class="btn btn-smile"  onclick="reload()">😊</button></h1>
+        <h1 class = "smilee"><button class="btn"  onclick="init()">😊</button></h1>
         <h2 class="msg"></h2> 
         <div class = "lives">🤍🤍🤍</div>  
-     </div>
-     <button class="btn_level easy" onclick="easyLevel()">easy</button>
-     <button class="btn_level medium" onclick="mediumLevel()">medium</button>
-     <button class="btn_level hard" onclick="hardLevel()">hard</button>
- 
+        </div>
 
-    <!-- <button onclick="toggleGame(this)">Start Game</button> -->
+        
+
+    <button onclick="toggleGame(this)">Start Game</button>
     <table border="1" cellpadding="10">
         <tbody class="board"></tbody>
     </table>
-<div class = "botoom"> 
-    <div class="stopwatch" id="stopwatch">00:00:00</div> <div class="left">MINES LEFT:</div>
-</div>
-<div><button onclick="hint()">Hint</button></div>
-    
-    <script src="js/level.js"></script>
-    <script src="js/toWorkOnIt.js"></script>
     <script src="js/negs.js"></script>
     <script src="js/util.js"></script>
     <script src="js/gameover.js"></script>
@@ -42,4 +33,3 @@
 </html>
 
 
-<!-- counterRestOfMines -->

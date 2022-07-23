@@ -1,7 +1,7 @@
 'use-strict';
 ////
 const GAME_FREQ = 1000;
-const LIFE = '🎃';
+const LIFE = '';
 const SUPER_LIFE = '';
 const TILE='⬛️'
 const BOMB = '💣'
@@ -23,6 +23,7 @@ var gLivesStatus = document.querySelector(".lives")
 // FOR COUNTER TILES INVERTED
 var gCountInvertedTiles = 0
 var gMarkedWereWasAmine = 0
+var counterRestOfMines = numberOfMines
 //INDEX OF MINES
 var gIndexMines
 // stop watch
@@ -30,17 +31,24 @@ var gIsGaming = false
 var gWatchIsStartAlready = false
 //(NUMBER-LET INDICITION ON BOMBS SOROUNDING THE TILE CLICKED)
 var numberOfNumIndicationOfBomb = 0
+// setLevelGame(8,8)
+// hardLevel()
 
+
+// document.querySelector('mine').style.backgroundColor = "#AA0000";
+// document.body.style.backgroundColor = "#AA0000";
 
 function init() {
+
     gBoard = createBoard();
     renderBoard(gBoard)
     // if (gGameInterval) clearInterval(gGameInterval)
     // play()
-
-
-
 }
+
+
+
+
 
 function toggleGame(elBtn){
     if(gGameInterval){
@@ -136,11 +144,14 @@ function renderBoard(board) {
         
         for(var j = 0; j < board[i].length; j++){
             var strClass = board[i][j] ? 'occupied' : ''
+            var strClass = board[i][j].mine === 1 ? 'mine' : ''
             strHTML += `
                 \t<td 
                     class="${strClass}"
                     data-i="${i}" data-j="${j}" 
+                    class="cell-${i}-${j}"
                     oncontextmenu = "markTile (this,${i}, ${j})"
+                    
                     onclick="cellClicked(this,${i}, ${j})">
                         ${board[i][j].tileBoard}
                 </td>\n
@@ -150,6 +161,8 @@ function renderBoard(board) {
     }
     var elTable = document.querySelector('.board')
     elTable.innerHTML = strHTML
+    console.log(strHTML);
+
 }
 
 
@@ -173,7 +186,9 @@ function createBombs(){
 }
 
 
-
+function hint(){
+    document.querySelector('.mine').style.backgroundColor = "#AA0000"; ///
+}
 
 
 function runGeneration(board) {
@@ -238,19 +253,21 @@ function markTile(elCell, cellI, cellJ){
 }
 
 
-
-
-    // if( currCell.isMarked === true || currCell.tileBoard === TILE ) {
-
-
+// function(){
+//     mineHint.classList.remove('mine')
+// }
+//     // if( currCell.isMarked === true || currCell.tileBoard === TILE ) {
+ 
 
 function cellClicked(elCell, cellI, cellJ){
+
+
+document.querySelector('.left').innerHTML=`MINES LEFT:${counterRestOfMines}`
+
     gIsGaming= true
      if (gIsGameOver ) return 
      startStopWatch()
     // blowUpNegs(gBombs, 0, 0)//!! it's bombs negs - IS WORKING - IS WORKING - IS WORKING - IS WORKING
-    // console.log('gIndexMines',gIndexMines);
-    // displayTheBombs(gIndexMines)
 
     var aBombArea = countBombs(cellI, cellJ, gBoard) 
     var currCell = gBoard[cellI][cellJ]
@@ -264,8 +281,6 @@ function cellClicked(elCell, cellI, cellJ){
     console.log('numberOfNumIndicationOfBomb',numberOfNumIndicationOfBomb); 
     }
 
-
-    //    renderCell(cellI,cellJ,aBombArea)  //!LEARN TO USE USER RENDER WORKING
     // console.log('countNegs',countMines);
 
 
@@ -298,7 +313,8 @@ function cellClicked(elCell, cellI, cellJ){
            elCell.innerText = BOMB
              // Update the status of Showed 
         currCell.isShowed = true 
-
+        counterRestOfMines -- 
+        console.log(counterRestOfMines);
            gameOver()
     }
 
@@ -337,3 +353,8 @@ function blowUpNegs(mat, cellI, cellJ){
 
 
 
+function visibleState(){
+
+}
+
+// How do you display an element in JavaScript?

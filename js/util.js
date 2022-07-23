@@ -111,10 +111,7 @@ function getLev(length) {
     return elCell
   }
   
-  // cell cell-${x}-${y}
-  
-  //cell-2-2
-  
+
   // stop watch
   function startStopWatch() {
     if (gIsGaming && !gWatchIsStartAlready)
@@ -122,4 +119,7 @@ function getLev(length) {
     start()
     gWatchIsStartAlready = true
   }
-  
+  // reload the page
+  function reload(){
+    window.location.reload();
+}

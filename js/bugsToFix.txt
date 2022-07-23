@@ -1,10 +1,33 @@
-// 
-
 //CSS-הטבלה מתכווצת ככל שמשחקים
-//ה-לב לא מסודר היטב בטבלה
+//CSS-ה-לב לא מסודר היטב בטבלה
+//CSS-רקע טורכיז לסמיילי
 // על ידי שינויים ב-2 פונקציות אלו
 // בשביל לפוצץ את המשבצות של השכנים אך יש באגים 
 // 
+//אפשרות להסיר את הדגל לאחר סימון
+//
+//ללא שימוש ב-reload-
+//בעזרת קליר אינטרוול לאיניט-שהסמיילי ייתן לשחק שוב
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function cellClicked(elCell, cellI, cellJ){
@@ -103,3 +126,20 @@ function blowUpNegs(mat, cellI, cellJ){
 // currCell.isShowed = true  //! CHECK IF THERE IS A BUG IN COUNTER OF TILES 
 // gCountInvertedTiles++
 
+========
+   
+try to see hint btn 
+    // const mineHint = document.querySelector('.mine');
+
+
+    //  setTimeout(mineHint.classList.remove('mine'),10000)
+    // mineHint.style.display = 'inline-block';
+ 
+    
+
+    
+    // btn.style.display = 'inline-block';
+    // renderCellmine(gIndexMines, 'MIKI') 
+
+    ===
+  
