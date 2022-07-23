@@ -1,0 +1,105 @@
+// 
+
+//CSS-הטבלה מתכווצת ככל שמשחקים
+//ה-לב לא מסודר היטב בטבלה
+// על ידי שינויים ב-2 פונקציות אלו
+// בשביל לפוצץ את המשבצות של השכנים אך יש באגים 
+// 
+
+
+function cellClicked(elCell, cellI, cellJ){
+    if (gIsGameOver ) return 
+   // blowUpNegs(gBombs, 0, 0)//!! it's bombs negs - IS WORKING - IS WORKING - IS WORKING - IS WORKING
+   // console.log('gIndexMines',gIndexMines);
+   // displayTheBombs(gIndexMines)
+
+   var aBombArea = countBombs(cellI, cellJ, gBoard) 
+   var currCell = gBoard[cellI][cellJ]
+
+   if (aBombArea  && !currCell.mine) {
+   console.log(`EXACT NUMBER OF BOMBS IN THIS AREA IS ${aBombArea}` );
+   
+   gBoard[cellI][cellJ] = aBombArea
+   elCell.innerText =aBombArea
+   numberOfNumIndicationOfBomb++
+   console.log('numberOfNumIndicationOfBomb',numberOfNumIndicationOfBomb); 
+   }
+
+
+   //    renderCell(cellI,cellJ,aBombArea)  //!LEARN TO USE USER renderCell
+   // console.log('countNegs',countMines);
+
+
+
+ currCell = gBoard[cellI][cellJ]
+
+   if( currCell.tileBoard === TILE &&  currCell.mine !== 1 ) {
+
+       blowUpNegs(gBombs, cellI, cellJ)
+ 
+
+
+       // console.log('TILE!!');
+       // // Update the model
+       // gBoard[cellI][cellJ] =''
+    
+       // // Update the DOM
+       // elCell.innerText = ''
+       //    // Update the status of Showed 
+       //    currCell.isShowed = true  //! CHECK IF THERE IS A BUG IN COUNTER OF TILES 
+       // gCountInvertedTiles++
+       // console.log(gCountInvertedTiles);
+       checkWin()
+   }
+   // CHECK IF THERE IS A MINE
+   if(currCell.mine === 1){
+       console.log( ' is a mine!!!');
+          // Update the model
+          gBoard[cellI][cellJ] = BOMB
+          // Update the DOM
+          elCell.innerText = BOMB
+            // Update the status of Showed 
+       currCell.isShowed = true 
+
+          gameOver()
+   }
+
+
+
+}
+
+
+
+// blowUpNegs(gBombs, 2, 2)
+function blowUpNegs(mat, cellI, cellJ){
+
+    for (var i = cellI - 1; i <= cellI + 1; i++) {
+        if (i < 0 || i >= mat.length) continue;
+
+        for (var j = cellJ - 1; j <= cellJ + 1; j++) {
+            // if (i === cellI && j === cellJ) continue;
+            if (j < 0 || j >= mat[i].length) continue;
+            // if (gBoard[cellI][cellJ].mine === 1) continue;
+            // if(mat[i][j] === SUPER_LIFE) continue
+            // Update Model
+
+            if (gBoard[cellI][cellJ].mine !== 1)  {
+            
+            mat[i][j] = ''
+
+            // Update DOM
+            var selector = `[data-i="${i}"][data-j="${j}"]`
+            var elCell = document.querySelector(selector)
+
+            elCell.innerText = ''
+            elCell.classList.remove('occupied')
+            console.log("miki");
+}
+
+        }
+    }
+}
+
+// currCell.isShowed = true  //! CHECK IF THERE IS A BUG IN COUNTER OF TILES 
+// gCountInvertedTiles++
+

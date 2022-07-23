@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body onload="init()"  oncontextmenu="return false;">
+    <h1>MINESWEEPER</h1>
+
+    <div>
+        <h1 class = "smilee"><button class="btn"  onclick="init()">😊</button></h1>
+        <h2 class="msg"></h2> 
+        <div class = "lives">🤍🤍🤍</div>  
+     </div>
+     <button class="btn_level easy" onclick="setLevel()">easy</button>
+     <button class="btn_level medium" onclick="setLevel()">medium</button>
+     <button class="btn_level hard" onclick="setLevel()">hard</button>
+
+    <!-- <button onclick="toggleGame(this)">Start Game</button> -->
+    <table border="1" cellpadding="10">
+        <tbody class="board"></tbody>
+    </table>
+
+    <p class="stopwatch" id="stopwatch">00:00:00</p>
+
+
+    <script src="js/negs.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/gameover.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+
+
