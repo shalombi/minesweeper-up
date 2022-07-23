@@ -8,7 +8,7 @@ const BOMB = '💣'
 
 // TILE_STATUSES
 HIDDEN='hidden'
-var numberOfMines =3
+var numberOfMines =2
 var boardSize = 4
 // The Model
 var gBoard;
@@ -31,9 +31,7 @@ var gIsGaming = false
 var gWatchIsStartAlready = false
 //(NUMBER-LET INDICITION ON BOMBS SOROUNDING THE TILE CLICKED)
 var numberOfNumIndicationOfBomb = 0
-// setLevelGame(8,8)
-// hardLevel()
-
+var secondClickedOnHint = false
 
 // document.querySelector('mine').style.backgroundColor = "#AA0000";
 // document.body.style.backgroundColor = "#AA0000";
@@ -186,9 +184,12 @@ function createBombs(){
 }
 
 
-function hint(){
-    document.querySelector('.mine').style.backgroundColor = "#AA0000"; ///
-}
+         
+console.log('gBoard[i][j]',gBoard[i][j]);
+
+
+
+
 
 
 function runGeneration(board) {
@@ -251,7 +252,6 @@ function markTile(elCell, cellI, cellJ){
     }
 
 }
-
 
 // function(){
 //     mineHint.classList.remove('mine')
@@ -358,3 +358,19 @@ function visibleState(){
 }
 
 // How do you display an element in JavaScript?
+
+function hint(){
+    if (secondClickedOnHint)return
+    //   gCountInvertedTiles++
+      gMarkedWereWasAmine++
+      secondClickedOnHint = true
+//  console.log('gCountInvertedTiles from hint function ',gCountInvertedTiles)
+ console.log('gMarkedWereWasAmine from hint function ',gMarkedWereWasAmine)
+ document.querySelector('.mine').style.backgroundColor = "#AA0000";
+
+
+    }
+
+
+
+    

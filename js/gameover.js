@@ -71,8 +71,10 @@ var conditionToWiB = gCountInvertedTiles === boardSize**2 - numberOfMines
 // IF CLICKED SHOWS A NUMBER AND NOT EMPTY CELL (NUMBER-LET INDICITION ON BOMBS SOROUNDING THE TILE CLICKED)
 var conditionToWiC = gCountInvertedTiles === boardSize**2 - numberOfMines - numberOfNumIndicationOfBomb
 
+var conditionToWinD=  gCountInvertedTiles === (boardSize**2 - numberOfNumIndicationOfBomb - gMarkedWereWasAmine) // marked === mines
 
-if (conditionToWinA || conditionToWiB || conditionToWiC) {
+
+if (conditionToWinA || conditionToWiB || conditionToWiC || conditionToWinD) {
     gSmileSituation.innerText = '😎'
     gMsgSituation.innerText = 'WIN!'
     gIsGameOver = true
