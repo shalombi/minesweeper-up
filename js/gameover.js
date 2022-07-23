@@ -60,6 +60,10 @@ gLivesStatus.innerText = lives
     
 
 
+// console.log('gCountInvertedTiles from checkWinn',gCountInvertedTiles);
+// console.log('boardSize**2 - numberOfMines from checkWinn',boardSize**2 - numberOfMines);
+// console.log('boardSize**2 - numberOfMines - numberOfNumIndicationOfBomb from checkWinn',boardSize**2 - numberOfMines - numberOfNumIndicationOfBomb);
+// console.log('gCountInvertedTiles from checkWinn',gCountInvertedTiles);
 
   //תנאי ניצחון
   
@@ -71,8 +75,11 @@ var conditionToWiB = gCountInvertedTiles === boardSize**2 - numberOfMines
 // IF CLICKED SHOWS A NUMBER AND NOT EMPTY CELL (NUMBER-LET INDICITION ON BOMBS SOROUNDING THE TILE CLICKED)
 var conditionToWiC = gCountInvertedTiles === boardSize**2 - numberOfMines - numberOfNumIndicationOfBomb
 
-var conditionToWinD=  gCountInvertedTiles === (boardSize**2 - numberOfNumIndicationOfBomb - gMarkedWereWasAmine) // marked === mines
+var conditionToWinD=  gCountInvertedTiles === (boardSize**2 - numberOfMines + gMarkedWereWasAmine) // marked === mines
 
+
+
+console.log(gCountInvertedTiles,'=========');
 
 if (conditionToWinA || conditionToWiB || conditionToWiC || conditionToWinD) {
     gSmileSituation.innerText = '😎'

@@ -267,7 +267,7 @@ document.querySelector('.left').innerHTML=`MINES LEFT:${counterRestOfMines}`
     gIsGaming= true
      if (gIsGameOver ) return 
      startStopWatch()
-    // blowUpNegs(gBombs, cellI, cellJ)//!! it's bombs negs - IS WORKING - IS WORKING - IS WORKING - IS WORKING
+    //  blowUpNegs(gBombs, cellI, cellJ)//!! it's bombs negs - IS WORKING 
 
     var aBombArea = countBombs(cellI, cellJ, gBoard) 
     var currCell = gBoard[cellI][cellJ]
@@ -352,10 +352,13 @@ function visibleState(){
 
 function hint(){
     if (secondClickedOnHint)return
-    //   gCountInvertedTiles++
+    //   gCountInvertedTiles--
       gMarkedWereWasAmine++
+   
       secondClickedOnHint = true
+ console.log('numberOfNumIndicationOfBomb from hint function ',numberOfNumIndicationOfBomb)
 //  console.log('gCountInvertedTiles from hint function ',gCountInvertedTiles)
+
  console.log('gMarkedWereWasAmine from hint function ',gMarkedWereWasAmine)
  document.querySelector('.mine').style.backgroundColor = "#AA0000";
 
