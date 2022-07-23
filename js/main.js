@@ -352,6 +352,7 @@ function visibleState(){
 
 function hint(){
     if (secondClickedOnHint)return
+        if (gIsGameOver) return
     //   gCountInvertedTiles--
       gMarkedWereWasAmine++
    
